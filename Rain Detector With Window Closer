@@ -1,21 +1,22 @@
 #include <Servo.h>
+#define SERVO_PIN 26 // ESP32 pin GPIO26 connected to servo motor
 
-Servo myservo;  // create servo object to control a servo
+Servo servoMotor;
 void setup() {
 
   pinMode(12, INPUT); // Rain Sensor pin 12
-  myservo.attach(9,600,2300); // servo pin 9
+  servoMotor.attach(SERVO_PIN);
   myservo.write(0); // positioning the servo
 }
 
 void loop() {
   
   if(digitalRead(12) == LOW){
-  myservo.write(180); // opening the window
+  servoMotor.write(180); // opening the window
   }
   
   else{
-        myservo.write(0); // window will stay closed
+         servoMotor.write(0); // window will stay closed
       }  
 
 }
