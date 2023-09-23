@@ -1,0 +1,21 @@
+#include <Servo.h>
+
+Servo myservo;  // create servo object to control a servo
+void setup() {
+
+  pinMode(12, INPUT); // Rain Sensor pin 12
+  myservo.attach(9,600,2300); // servo pin 9
+  myservo.write(0); // positioning the servo
+}
+
+void loop() {
+  
+  if(digitalRead(12) == LOW){
+  myservo.write(180); // opening the window
+  }
+  
+  else{
+        myservo.write(0); // window will stay closed
+      }  
+
+}
